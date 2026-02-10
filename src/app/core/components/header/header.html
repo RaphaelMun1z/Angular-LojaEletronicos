@@ -1,0 +1,111 @@
+<header class="sticky top-0 z-50">
+  <!-- Top Bar -->
+  <div class="bg-blue-900 text-white text-xs py-1 px-4 hidden md:flex justify-between items-center">
+    <div class="flex gap-4">
+      <span>Baixe o App</span>
+      <span>Atendimento</span>
+    </div>
+    <div class="flex gap-4">
+      <span>Venda no TechBoom</span>
+      <span>Seja Prime</span>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <div class="bg-blue-700 shadow-lg text-white py-4">
+    <div class="container mx-auto px-4 flex items-center justify-between gap-4">
+      <!-- Logo & Mobile Menu -->
+      <div class="flex items-center gap-3">
+        <button class="md:hidden p-1">
+          <app-icon name="menu" class="w-6 h-6"></app-icon>
+        </button>
+        <div class="flex flex-col leading-none cursor-pointer">
+          <span class="font-black text-2xl italic tracking-tighter text-orange-500 drop-shadow-sm"
+            >TECHBOOM</span
+          >
+          <span class="text-[10px] font-bold tracking-widest text-blue-200">GAMING & TECH</span>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="flex-1 max-w-2xl hidden md:flex relative">
+        <input
+          type="text"
+          placeholder="Busque aqui seu produto (ex: RTX 4090)"
+          class="w-full py-2.5 pl-4 pr-12 rounded bg-blue-800 text-white placeholder-blue-300 border border-blue-600 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+        />
+        <button
+          class="absolute right-0 top-0 h-full px-4 text-orange-500 hover:text-orange-400 flex items-center"
+        >
+          <app-icon name="search" class="w-5 h-5"></app-icon>
+        </button>
+      </div>
+
+      <!-- User Actions -->
+      <div class="flex items-center gap-6">
+        <div
+          class="hidden md:flex items-center gap-2 cursor-pointer hover:bg-blue-600 p-2 rounded transition"
+        >
+          <app-icon name="user" class="w-6 h-6"></app-icon>
+          <div class="text-xs flex flex-col">
+            <span class="text-blue-200">Olá, faça seu login</span>
+            <span class="font-bold">ou cadastre-se</span>
+          </div>
+        </div>
+
+        <div class="relative cursor-pointer group">
+          <app-icon
+            name="shopping-cart"
+            class="w-7 h-7 text-white group-hover:text-orange-400 transition"
+          ></app-icon>
+          <span
+            class="absolute -top-1 -right-2 bg-orange-600 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-blue-700"
+            >0</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Search (Visible only on mobile) -->
+    <div class="md:hidden px-4 mt-3">
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Busque seu produto..."
+          class="w-full py-2 pl-4 pr-10 rounded bg-blue-800 text-white border border-blue-600 text-sm"
+        />
+        <div class="absolute right-3 top-2">
+          <app-icon name="search" class="w-4 h-4 text-orange-500"></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Bar -->
+  <nav class="bg-orange-600 text-white shadow-md overflow-x-auto scrollbar-hide">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center gap-1 min-w-max">
+        <div
+          class="flex items-center gap-2 py-3 px-4 font-bold bg-orange-700 cursor-pointer hover:bg-orange-800 transition"
+        >
+          <app-icon name="menu" [size]="18"></app-icon>
+          TODOS OS DEPARTAMENTOS
+        </div>
+        @for (dept of departments; track dept.id) {
+          <a
+            href="#"
+            class="py-3 px-4 text-sm font-semibold hover:bg-orange-500 transition flex items-center gap-2"
+          >
+            {{ dept.name }}
+          </a>
+        }
+        <a
+          href="#"
+          class="py-3 px-4 text-sm font-semibold hover:bg-orange-500 transition ml-auto flex items-center gap-1"
+        >
+          <app-icon name="zap" [size]="16" class="fill-current"></app-icon> OFERTAS DO DIA
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

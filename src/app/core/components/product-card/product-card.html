@@ -1,0 +1,97 @@
+<div
+  class="bg-white rounded-lg p-4 relative group hover:shadow-xl transition-all duration-300 border border-transparent hover:border-orange-200 flex flex-col h-full"
+>
+  <!-- Discount Badge -->
+  <div
+    class="absolute top-0 right-0 bg-orange-600 text-white font-bold text-xs px-2 py-1 rounded-bl-lg rounded-tr-lg z-10"
+  >
+    {{ product.discount }}% OFF
+  </div>
+
+  <!-- Image Area -->
+  <div
+    class="relative mb-4 overflow-hidden rounded-md bg-white h-48 flex items-center justify-center"
+  >
+    <img
+      [src]="product.image"
+      [alt]="product.name"
+      class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+    />
+    <div class="absolute top-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity">
+      <button
+        class="p-1.5 bg-gray-100 rounded-full hover:bg-red-50 text-gray-400 hover:text-red-500 shadow-sm border border-gray-200 flex items-center justify-center"
+      >
+        <app-icon name="heart" [size]="18"></app-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="flex flex-col flex-1">
+    <div class="text-xs text-gray-400 uppercase font-semibold mb-1">{{ product.brand }}</div>
+    <h3
+      class="text-sm text-gray-700 font-medium mb-2 leading-snug line-clamp-3 group-hover:text-blue-700 transition-colors flex-1"
+    >
+      {{ product.name }}
+    </h3>
+
+    <!-- Rating -->
+    <div class="flex items-center gap-1 mb-2">
+      @for (star of [1, 2, 3, 4, 5]; track star) {
+        <app-icon
+          name="star"
+          [size]="12"
+          [class]="
+            star <= product.rating
+              ? 'fill-yellow-400 text-yellow-400'
+              : 'fill-gray-200 text-gray-200'
+          "
+        >
+        </app-icon>
+      }
+      @if (product.reviews) {
+        <span class="text-[10px] text-gray-400">({{ product.reviews }})</span>
+      }
+    </div>
+
+    <!-- Price Block -->
+    <div class="mt-auto">
+      <div class="text-xs text-gray-400 line-through">
+        R$ {{ product.oldPrice | number: '1.2-2' }}
+      </div>
+      <div class="flex items-end gap-1 flex-wrap">
+        <span class="text-orange-600 font-black text-xl"
+          >R$ {{ product.price | number: '1.2-2' }}</span
+        >
+        <span class="text-xs text-gray-500 font-medium mb-1">à vista no PIX</span>
+      </div>
+      <div class="text-[10px] text-gray-500 mt-1">
+        ou em 10x de R$ {{ getInstallmentPrice(product.price) | number: '1.2-2' }} sem juros
+      </div>
+    </div>
+
+    <!-- Buy Button -->
+    <button
+      class="w-full mt-3 bg-blue-600 group-hover:bg-orange-600 text-white py-2 rounded font-bold uppercase text-xs flex items-center justify-center gap-2 transition-colors duration-300"
+    >
+      <app-icon name="shopping-cart" [size]="16"></app-icon>
+      Comprar
+    </button>
+  </div>
+
+  <!-- Flash Sale Progress Bar -->
+  @if (isFlash && product.stockLeft !== undefined) {
+    <div class="mt-3">
+      <div class="flex justify-between text-[10px] text-gray-500 mb-1">
+        <span>Vendidos: {{ 100 - product.stockLeft }}</span>
+        <span className="font-bold text-orange-600">Restam: {{ product.stockLeft }}</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-200">
+        <div
+          class="bg-orange-500 h-1.5 rounded-full"
+          [style.width.%]="100 - product.stockLeft"
+        ></div>
+      </div>
+    </div>
+  }
+</div>
