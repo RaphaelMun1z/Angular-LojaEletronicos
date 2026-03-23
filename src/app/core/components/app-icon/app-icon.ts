@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-app-icon',
+  selector: 'app-icon',
   imports: [CommonModule],
   templateUrl: './app-icon.html',
   styleUrl: './app-icon.css',

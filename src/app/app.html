@@ -1,93 +1,137 @@
-<!-- <router-outlet /> -->
-<div class="font-sans bg-gray-50 min-h-screen flex flex-col">
+<router-outlet />
+<div class="min-h-screen flex flex-col bg-stone-100 text-stone-900">
+  <a
+    href="#conteudo-principal"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-stone-950"
+  >
+    Pular para o conteudo principal
+  </a>
   <app-header></app-header>
 
-  <main class="flex-grow">
+  <main id="conteudo-principal" class="flex-grow" tabindex="-1">
     <app-hero-banner></app-hero-banner>
 
-    <!-- Features Bar -->
-    <div class="bg-white border-b border-gray-200 py-4 hidden md:block">
-      <div class="container mx-auto px-4 flex justify-between">
-        <div class="flex items-center gap-3 text-gray-600">
-          <app-icon name="truck" class="text-orange-600" [size]="24"></app-icon>
+    <section
+      class="hidden border-b border-stone-300 bg-white py-5 md:block"
+      aria-labelledby="diferenciais-title"
+    >
+      <div class="container mx-auto flex justify-between px-4">
+        <div class="flex items-center gap-3 text-stone-600">
+          <app-icon name="truck" class="text-amber-700" [size]="24"></app-icon>
           <div>
-            <p class="font-bold text-sm text-gray-800">Frete Grátis</p>
-            <p class="text-xs">Confira as regras</p>
+            <p class="font-display text-base font-bold uppercase tracking-wide text-stone-900">
+              Entrega para todo o Brasil
+            </p>
+            <p class="text-xs">Consulte prazos por regiao e modalidade</p>
           </div>
         </div>
-        <div class="flex items-center gap-3 text-gray-600">
-          <app-icon name="credit-card" class="text-orange-600" [size]="24"></app-icon>
+        <div class="flex items-center gap-3 text-stone-600">
+          <app-icon name="credit-card" class="text-amber-700" [size]="24"></app-icon>
           <div>
-            <p class="font-bold text-sm text-gray-800">Até 10x Sem Juros</p>
-            <p class="text-xs">Ver parcelas</p>
+            <p class="font-display text-base font-bold uppercase tracking-wide text-stone-900">
+              Parcelamento flexivel
+            </p>
+            <p class="text-xs">Em ate 10x para revisao e manutencao</p>
           </div>
         </div>
-        <div class="flex items-center gap-3 text-gray-600">
-          <div class="font-black text-orange-600 text-lg border border-orange-600 rounded px-1">
-            PIX
-          </div>
+        <div class="flex items-center gap-3 text-stone-600">
+          <div class="rounded border border-red-700 px-1 font-black text-lg text-red-700">PIX</div>
           <div>
-            <p class="font-bold text-sm text-gray-800">15% de Desconto</p>
-            <p class="text-xs">No pagamento via PIX</p>
+            <p class="font-display text-base font-bold uppercase tracking-wide text-stone-900">
+              Desconto na oficina
+            </p>
+            <p class="text-xs">Economize em kits de troca e servicos preventivos</p>
           </div>
         </div>
-        <div class="flex items-center gap-3 text-gray-600">
-          <app-icon name="shield-check" class="text-orange-600" [size]="24"></app-icon>
+        <div class="flex items-center gap-3 text-stone-600">
+          <app-icon name="shield-check" class="text-amber-700" [size]="24"></app-icon>
           <div>
-            <p class="font-bold text-sm text-gray-800">Site Seguro</p>
-            <p class="text-xs">Protegemos seus dados</p>
+            <p class="font-display text-base font-bold uppercase tracking-wide text-stone-900">
+              Procedencia garantida
+            </p>
+            <p class="text-xs">Marcas homologadas e compra protegida</p>
           </div>
         </div>
       </div>
-    </div>
+      <h2 id="diferenciais-title" class="sr-only">Diferenciais da loja</h2>
+    </section>
 
     <app-department-grid></app-department-grid>
 
     <app-flash-offers></app-flash-offers>
 
-    <section class="py-12 container mx-auto px-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-800">
-          Mais Vendidos em <span class="text-orange-600">Tecnologia</span>
+    <app-service-highlights></app-service-highlights>
+
+    <app-fitment-guide></app-fitment-guide>
+
+    <section class="container mx-auto px-4 py-16" aria-labelledby="mais-vendidos-title">
+      <div class="mb-8 flex items-center justify-between">
+        <h2
+          id="mais-vendidos-title"
+          class="font-display text-4xl font-bold uppercase tracking-wide text-stone-900"
+        >
+          Mais vendidos em <span class="text-red-700">autopecas</span>
         </h2>
-        <a href="#" class="text-blue-600 font-bold text-sm flex items-center hover:underline">
+        <a
+          href="#"
+          class="flex items-center text-sm font-bold uppercase tracking-wide text-red-700 hover:underline"
+        >
           Ver todos <app-icon name="chevron-right" [size]="16"></app-icon>
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         @for (product of recommended; track product.id) {
           <app-product-card [product]="product"></app-product-card>
         }
       </div>
     </section>
 
-    <!-- Newsletter Banner -->
-    <section class="bg-blue-800 py-10 text-white relative overflow-hidden">
+    <app-testimonials-showcase></app-testimonials-showcase>
+
+    <app-faq-section></app-faq-section>
+
+    <section
+      class="relative overflow-hidden bg-stone-900 py-14 text-white"
+      aria-labelledby="newsletter-title"
+    >
       <div
-        class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6"
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(194,65,12,0.35),_transparent_35%),linear-gradient(135deg,_rgba(214,179,106,0.12),_transparent_45%)]"
+      ></div>
+      <div
+        class="container mx-auto relative z-10 flex flex-col items-center justify-between gap-8 px-4 md:flex-row"
       >
         <div class="flex items-center gap-4">
-          <div class="bg-orange-600 p-3 rounded-full">
+          <div class="rounded-full bg-red-700 p-3 shadow-lg shadow-red-950/40">
             <app-icon name="zap" [size]="32"></app-icon>
           </div>
           <div>
-            <h3 class="text-2xl font-bold">Cadastre-se e receba ofertas!</h3>
-            <p class="text-blue-200">Não perca promoções exclusivas e cupons.</p>
+            <h3
+              id="newsletter-title"
+              class="font-display text-3xl font-bold uppercase tracking-wide"
+            >
+              Receba alertas de manutencao e ofertas
+            </h3>
+            <p class="text-stone-300">Cupons, combos por montadora e novidades para sua garagem.</p>
           </div>
         </div>
-        <div class="flex w-full md:w-auto gap-2">
+        <form class="flex w-full gap-3 md:w-auto" aria-label="Formulario de newsletter">
+          <label for="newsletter-email" class="sr-only"
+            >Digite seu e-mail para receber ofertas</label
+          >
           <input
+            id="newsletter-email"
             type="email"
             placeholder="Digite seu e-mail"
-            class="p-3 rounded text-gray-800 w-full md:w-80 outline-none border-2 border-transparent focus:border-orange-500"
+            class="w-full rounded border-2 border-transparent bg-stone-100 p-3 text-stone-900 outline-none focus:border-amber-600 md:w-80"
           />
           <button
-            class="bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 px-6 rounded uppercase transition shadow-lg"
+            type="submit"
+            class="rounded bg-red-700 px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-white shadow-lg transition hover:bg-red-600"
           >
             Cadastrar
           </button>
-        </div>
+        </form>
       </div>
     </section>
   </main>

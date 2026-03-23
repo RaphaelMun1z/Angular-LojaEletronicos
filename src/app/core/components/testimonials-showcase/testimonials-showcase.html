@@ -1,0 +1,44 @@
+<section class="relative overflow-hidden py-16 text-white" aria-labelledby="testimonials-title">
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image: linear-gradient(90deg, rgba(8,8,8,0.88), rgba(8,8,8,0.82)), url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1600&q=80');"
+  ></div>
+  <div class="container mx-auto relative z-10 px-4">
+    <div class="grid items-start gap-8 lg:grid-cols-[0.88fr_1.12fr]">
+      <div class="rounded-[1.75rem] border border-white/10 bg-black/45 p-8 backdrop-blur-md">
+        <p class="font-display text-sm font-bold uppercase tracking-[0.35em] text-amber-400">
+          Testimonials
+        </p>
+        <h2 id="testimonials-title" class="mt-4 font-display text-5xl font-black uppercase leading-none md:text-6xl">
+          O que nossos clientes dizem
+        </h2>
+        <p class="mt-5 max-w-xl text-base leading-7 text-stone-100">
+          A leitura agora fica apoiada em um painel escuro sem depender do contraste da foto.
+          Assim mantemos a atmosfera premium sem sacrificar legibilidade.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <article class="rounded-[1.75rem] border border-white/10 bg-stone-950/88 p-8 shadow-2xl backdrop-blur-sm">
+          <div class="flex items-center gap-1 text-amber-400">
+            @for (star of [1, 2, 3, 4, 5]; track star) {
+              <app-icon name="star" [size]="16" class="fill-current"></app-icon>
+            }
+          </div>
+          <p class="mt-6 text-sm leading-7 text-stone-100">{{ testimonial.text }}</p>
+          <div class="mt-8 flex items-center gap-4">
+            <div class="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-red-500">
+              <app-icon name="quote" [size]="22"></app-icon>
+            </div>
+            <div>
+              <p class="font-display text-2xl font-bold uppercase tracking-wide">{{ testimonial.name }}</p>
+              <p class="text-sm text-stone-300">{{ testimonial.role }}</p>
+            </div>
+          </div>
+        </article>
+      }
+      </div>
+    </div>
+  </div>
+</section>

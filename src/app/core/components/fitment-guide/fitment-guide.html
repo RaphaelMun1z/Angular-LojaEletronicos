@@ -1,0 +1,104 @@
+<section class="bg-stone-100 py-16" aria-labelledby="fitment-guide-title">
+  <div class="container mx-auto grid gap-10 px-4 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+    <div class="relative min-h-[520px]">
+      <div
+        class="absolute left-0 top-0 h-[72%] w-[62%] overflow-hidden rounded-[2rem] bg-stone-200 shadow-xl"
+        style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=900&q=80'); background-size: cover; background-position: center;"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 h-[58%] w-[62%] overflow-hidden rounded-[2rem] bg-stone-300 shadow-xl"
+        style="background-image: url('https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&w=900&q=80'); background-size: cover; background-position: center;"
+      ></div>
+      <div class="absolute bottom-8 left-[18%] grid grid-cols-2 gap-4">
+        <div class="bg-red-700 px-8 py-6 text-white shadow-2xl">
+          <p class="font-display text-sm font-bold uppercase tracking-[0.2em]">Veiculos</p>
+          <p class="mt-2 font-display text-5xl font-black uppercase">100+</p>
+          <p class="mt-2 text-sm text-red-100">Aplicacoes em destaque na home</p>
+        </div>
+        <div class="bg-stone-950 px-8 py-6 text-white shadow-2xl">
+          <p class="font-display text-sm font-bold uppercase tracking-[0.2em]">Categorias</p>
+          <p class="mt-2 font-display text-5xl font-black uppercase">16</p>
+          <p class="mt-2 text-sm text-stone-300">Termos com potencial de busca e conversao</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-red-700">
+        Guia de compatibilidade
+      </p>
+      <h2
+        id="fitment-guide-title"
+        class="mt-2 font-display text-4xl font-black uppercase tracking-wide text-stone-900"
+      >
+        Escolha a peca certa com mais contexto e menos retrabalho
+      </h2>
+      <p class="mt-4 max-w-2xl text-base leading-7 text-stone-600">
+        Para quem se preocupa com aplicacao correta, SEO tambem passa por conteudo util. Esta secao
+        adiciona contexto para pesquisas como "como escolher autopeca", "peca correta por modelo"
+        e "kit revisao para carro popular", enquanto ajuda o usuario a comprar com mais seguranca.
+      </p>
+
+      <div class="mt-8 space-y-4">
+        @for (check of checks; track check) {
+          <div class="flex items-start gap-3">
+            <app-icon name="badge-check" [size]="18" class="mt-1 text-red-700"></app-icon>
+            <p class="text-sm leading-6 text-stone-700">{{ check }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="mt-10 grid gap-4">
+        @for (step of steps; track step.title) {
+          <article class="flex gap-4 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div class="mt-1 flex h-11 w-11 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+              <app-icon [name]="step.icon" [size]="20"></app-icon>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-bold uppercase tracking-wide text-stone-900">
+                {{ step.title }}
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-stone-600">{{ step.description }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+
+    <aside class="rounded-[2rem] bg-gradient-to-br from-stone-950 via-stone-900 to-red-950 p-9 text-white shadow-xl lg:col-span-2">
+      <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-amber-400">
+        Busca inteligente
+      </p>
+      <h3 class="mt-3 font-display text-3xl font-black uppercase leading-tight">
+        Categorias com foco em manutencao preventiva e giro de oficina
+      </h3>
+      <p class="mt-4 max-w-4xl text-sm leading-6 text-stone-300">
+        Estrutura ideal para destacar palavras-chave comerciais e informativas sem deixar a home
+        rasa. Isso melhora a leitura para pessoas e para mecanismos de busca.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3" aria-label="Segmentos atendidos">
+        @for (segment of segments; track segment) {
+          <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm">
+            {{ segment }}
+          </span>
+        }
+      </div>
+
+      <div class="mt-8 grid gap-4 rounded-2xl bg-white/5 p-5 lg:grid-cols-3">
+        <div class="flex items-center gap-3">
+          <app-icon name="engine" [size]="20" class="text-amber-400"></app-icon>
+          <p class="text-sm">Motores aspirados, turbo, flex e diesel leve</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <app-icon name="brake-disc" [size]="20" class="text-amber-400"></app-icon>
+          <p class="text-sm">Pastilhas, discos, cilindros e fluidos</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <app-icon name="spark-plug" [size]="20" class="text-amber-400"></app-icon>
+          <p class="text-sm">Ignicao, sensores e eletrica de reposicao</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>

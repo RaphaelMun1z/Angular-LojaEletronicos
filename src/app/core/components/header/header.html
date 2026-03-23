@@ -1,109 +1,116 @@
 <header class="sticky top-0 z-50">
-  <!-- Top Bar -->
-  <div class="bg-blue-900 text-white text-xs py-1 px-4 hidden md:flex justify-between items-center">
+  <div class="hidden items-center justify-between bg-stone-950 px-4 py-1 text-xs text-stone-200 md:flex">
     <div class="flex gap-4">
-      <span>Baixe o App</span>
-      <span>Atendimento</span>
+      <span>Guia de aplicacao</span>
+      <span>Atendimento tecnico</span>
     </div>
     <div class="flex gap-4">
-      <span>Venda no TechBoom</span>
-      <span>Seja Prime</span>
+      <span>Venda na Garagem Pro</span>
+      <span>Clube da oficina</span>
     </div>
   </div>
 
-  <!-- Main Header -->
-  <div class="bg-blue-700 shadow-lg text-white py-4">
-    <div class="container mx-auto px-4 flex items-center justify-between gap-4">
-      <!-- Logo & Mobile Menu -->
+  <div class="bg-stone-900 py-4 text-white shadow-lg">
+    <div class="container mx-auto flex items-center justify-between gap-4 px-4">
       <div class="flex items-center gap-3">
-        <button class="md:hidden p-1">
-          <app-icon name="menu" class="w-6 h-6"></app-icon>
+        <button class="p-1 md:hidden" type="button" aria-label="Abrir menu de departamentos">
+          <app-icon name="menu" class="h-6 w-6"></app-icon>
         </button>
-        <div class="flex flex-col leading-none cursor-pointer">
-          <span class="font-black text-2xl italic tracking-tighter text-orange-500 drop-shadow-sm"
-            >TECHBOOM</span
-          >
-          <span class="text-[10px] font-bold tracking-widest text-blue-200">GAMING & TECH</span>
+        <div class="flex cursor-pointer flex-col leading-none" aria-label="Garagem Pro Autopecas e Performance">
+          <span class="font-display text-3xl font-black italic tracking-tight text-amber-500">
+            GARAGEM PRO
+          </span>
+          <span class="text-[10px] font-bold tracking-[0.35em] text-stone-400">
+            AUTOPECAS & PERFORMANCE
+          </span>
         </div>
       </div>
 
-      <!-- Search Bar -->
-      <div class="flex-1 max-w-2xl hidden md:flex relative">
+      <form class="relative hidden max-w-2xl flex-1 md:flex" role="search" aria-label="Buscar autopecas">
+        <label for="desktop-search" class="sr-only">Buscar pecas, kits e marcas</label>
         <input
+          id="desktop-search"
           type="text"
-          placeholder="Busque aqui seu produto (ex: RTX 4090)"
-          class="w-full py-2.5 pl-4 pr-12 rounded bg-blue-800 text-white placeholder-blue-300 border border-blue-600 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+          placeholder="Busque por placa, filtro, kit de revisao ou montadora"
+          class="w-full rounded border border-stone-700 bg-stone-800 py-2.5 pl-4 pr-12 text-white placeholder-stone-400 transition-all focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600"
         />
         <button
-          class="absolute right-0 top-0 h-full px-4 text-orange-500 hover:text-orange-400 flex items-center"
+          type="submit"
+          aria-label="Pesquisar no catalogo"
+          class="absolute right-0 top-0 flex h-full items-center px-4 text-amber-500 hover:text-amber-400"
         >
-          <app-icon name="search" class="w-5 h-5"></app-icon>
+          <app-icon name="search" class="h-5 w-5"></app-icon>
         </button>
-      </div>
+      </form>
 
-      <!-- User Actions -->
       <div class="flex items-center gap-6">
         <div
-          class="hidden md:flex items-center gap-2 cursor-pointer hover:bg-blue-600 p-2 rounded transition"
+          class="hidden cursor-pointer items-center gap-2 rounded p-2 transition hover:bg-stone-800 md:flex"
         >
-          <app-icon name="user" class="w-6 h-6"></app-icon>
-          <div class="text-xs flex flex-col">
-            <span class="text-blue-200">Olá, faça seu login</span>
-            <span class="font-bold">ou cadastre-se</span>
+          <app-icon name="user" class="h-6 w-6"></app-icon>
+          <div class="flex flex-col text-xs">
+            <span class="text-stone-400">Seu carro merece cuidado</span>
+            <span class="font-bold">entre ou cadastre-se</span>
           </div>
         </div>
 
-        <div class="relative cursor-pointer group">
+        <button
+          class="group relative cursor-pointer"
+          type="button"
+          aria-label="Abrir carrinho com 0 itens"
+        >
           <app-icon
             name="shopping-cart"
-            class="w-7 h-7 text-white group-hover:text-orange-400 transition"
+            class="h-7 w-7 text-white transition group-hover:text-amber-400"
           ></app-icon>
           <span
-            class="absolute -top-1 -right-2 bg-orange-600 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-blue-700"
+            class="absolute -right-2 -top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-stone-900 bg-red-700 text-[10px] font-bold text-white"
             >0</span
           >
-        </div>
+        </button>
       </div>
     </div>
 
-    <!-- Mobile Search (Visible only on mobile) -->
-    <div class="md:hidden px-4 mt-3">
-      <div class="relative">
+    <div class="mt-3 px-4 md:hidden">
+      <form class="relative" role="search" aria-label="Buscar autopecas no celular">
+        <label for="mobile-search" class="sr-only">Buscar pecas no celular</label>
         <input
+          id="mobile-search"
           type="text"
-          placeholder="Busque seu produto..."
-          class="w-full py-2 pl-4 pr-10 rounded bg-blue-800 text-white border border-blue-600 text-sm"
+          placeholder="Busque sua peca..."
+          class="w-full rounded border border-stone-700 bg-stone-800 py-2 pl-4 pr-10 text-sm text-white"
         />
         <div class="absolute right-3 top-2">
-          <app-icon name="search" class="w-4 h-4 text-orange-500"></app-icon>
+          <app-icon name="search" class="h-4 w-4 text-amber-500"></app-icon>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 
-  <!-- Categories Bar -->
-  <nav class="bg-orange-600 text-white shadow-md overflow-x-auto scrollbar-hide">
+  <nav class="overflow-x-auto bg-red-700 text-white shadow-md scrollbar-hide" aria-label="Departamentos da loja">
     <div class="container mx-auto px-4">
-      <div class="flex items-center gap-1 min-w-max">
+      <div class="flex min-w-max items-center gap-1">
         <div
-          class="flex items-center gap-2 py-3 px-4 font-bold bg-orange-700 cursor-pointer hover:bg-orange-800 transition"
+          class="flex cursor-pointer items-center gap-2 bg-red-800 px-4 py-3 font-display text-sm font-bold uppercase tracking-wide transition hover:bg-red-900"
         >
           <app-icon name="menu" [size]="18"></app-icon>
-          TODOS OS DEPARTAMENTOS
+          Todos os departamentos
         </div>
         @for (dept of departments; track dept.id) {
           <a
             href="#"
-            class="py-3 px-4 text-sm font-semibold hover:bg-orange-500 transition flex items-center gap-2"
+            [attr.aria-label]="'Acessar categoria ' + dept.name"
+            class="flex items-center gap-2 px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide transition hover:bg-red-600"
           >
             {{ dept.name }}
           </a>
         }
         <a
           href="#"
-          class="py-3 px-4 text-sm font-semibold hover:bg-orange-500 transition ml-auto flex items-center gap-1"
+          aria-label="Ver ofertas da semana"
+          class="ml-auto flex items-center gap-1 px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide transition hover:bg-red-600"
         >
-          <app-icon name="zap" [size]="16" class="fill-current"></app-icon> OFERTAS DO DIA
+          <app-icon name="zap" [size]="16" class="fill-current"></app-icon> Ofertas da semana
         </a>
       </div>
     </div>

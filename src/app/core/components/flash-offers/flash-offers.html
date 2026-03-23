@@ -1,5 +1,4 @@
-<section class="py-8 bg-blue-600 relative overflow-hidden">
-  <!-- Diagonal stripe background -->
+<section class="relative overflow-hidden bg-stone-900 py-8">
   <div
     class="absolute inset-0"
     style="
@@ -10,31 +9,36 @@
         transparent 75%,
         transparent 100%
       );
-      background-size: 20px 20px;
+      background-size: 24px 24px;
     "
   ></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(194,65,12,0.3),_transparent_30%)]"></div>
 
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="container mx-auto relative z-10 px-4">
     <div
-      class="flex flex-col md:flex-row justify-between items-end md:items-center mb-6 gap-4 border-b border-blue-400/30 pb-4"
+      class="mb-6 flex flex-col items-end justify-between gap-4 border-b border-white/10 pb-4 md:flex-row md:items-center"
     >
       <div class="flex items-center gap-3">
-        <app-icon name="zap" class="text-yellow-400 fill-current animate-pulse w-8 h-8"></app-icon>
+        <app-icon name="zap" class="h-8 w-8 fill-current text-amber-400"></app-icon>
         <div>
-          <h2 class="text-2xl font-black text-white italic uppercase tracking-tight">
-            Oferta Relâmpago
+          <h2 class="font-display text-3xl font-black uppercase tracking-wide text-white">
+            Giro rapido da oficina
           </h2>
-          <p class="text-blue-200 text-xs font-bold">PREÇOS IMBATÍVEIS POR TEMPO LIMITADO</p>
+          <p class="text-xs font-bold uppercase tracking-[0.25em] text-stone-400">
+            PRECOS ESPECIAIS POR TEMPO LIMITADO
+          </p>
         </div>
       </div>
 
       <div class="flex items-center gap-4">
-        <span class="text-white text-sm font-bold uppercase hidden md:inline">Termina em:</span>
+        <span class="hidden font-display text-sm font-bold uppercase tracking-wide text-white md:inline">
+          Termina em:
+        </span>
         <app-count-down-timer></app-count-down-timer>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       @for (product of offers; track product.id) {
         <app-product-card [product]="product" [isFlash]="true"></app-product-card>
       }

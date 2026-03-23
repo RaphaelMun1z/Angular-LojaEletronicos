@@ -1,3 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Barlow+Condensed:wght@600;700;800&display=swap');
 @import "tailwindcss";
+
+:root {
+  --theme-bg: #f3f1eb;
+  --theme-ink: #141414;
+}
+
+html,
+body {
+  background: var(--theme-bg);
+  color: var(--theme-ink);
+  font-family: 'Barlow', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.02em;
+}
